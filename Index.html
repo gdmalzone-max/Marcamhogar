@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MARCAM | Materiales eléctricos y hogar</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #151515;
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 18px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #f5c400;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #f5c400;
+}
+
+.hero {
+    background: linear-gradient(135deg, #111, #292929);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #f5c400;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: auto;
+    color: #ddd;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 22px;
+    margin: 6px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    background: #f5c400;
+    color: #111;
+}
+
+.button.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,.1);
+}
+
+.product-image {
+    height: 180px;
+    background: #e9e9e9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    margin-bottom: 18px;
+}
+
+.product h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.promo {
+    display: inline-block;
+    background: #111;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.list-price {
+    color: #777;
+    font-size: 14px;
+}
+
+.product-button {
+    display: block;
+    text-align: center;
+    background: #111;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.category {
+    background: #111;
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.category-icon {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.info {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.info h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.contact {
+    background: #111;
+    color: white;
+    text-align: center;
+    max-width: none;
+}
+
+.contact h2 {
+    color: white;
+}
+
+footer {
+    background: #080808;
+    color: #aaa;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,.3);
+    z-index: 2000;
+}
+
+@media (max-width: 800px) {
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .categories {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header">
+
+        <div class="logo">
+            MAR<span>CAM</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#promociones">Promociones</a>
+            <a href="#productos">Productos</a>
+            <a href="#ubicacion">Ubicación</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="hero" id="inicio">
+
+    <h1>
+        MAR<span>CAM</span>
+    </h1>
+
+    <p>
+        Materiales eléctricos, iluminación, herramientas
+        y productos para el hogar.
+    </p>
+
+    <div class="buttons">
+
+        <a class="button" href="#promociones">
+            🔥 VER PROMOCIONES
+        </a>
+
+        <a class="button whatsapp"
+           href="https://wa.me/541169728956"
+           target="_blank">
+            📲 WHATSAPP
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="promociones">
+
+    <h2>🔥 Promociones destacadas</h2>
+
+    <p class="section-subtitle">
+        Aprovechá nuestros precios promocionales.
+    </p>
+
+
+    <div class="products">
+
+
+        <div class="product">
+
+            <div class="product-image">
+                SOLDADOR INVERTER<br>
+                IRON 100-8 LUSQTOFF
+            </div>
+
+            <span class="promo">
+                PROMO EN EFECTIVO
+            </span>
+
+            <h3>
+                Soldador Inverter Iron 100-8 Lusqtoff
+            </h3>
+
+            <div class="price">
+                $132.500
+            </div>
+
+            <div class="list-price">
+                Precio de lista: $143.000
+            </div>
+
+            <a class="product-button"
+               href="https://wa.me/541169728956?text=Hola%20MARCAM%2C%20consulto%20por%20el%20Soldador%20Inverter%20Iron%20100-8"
+               target="_blank">
+                CONSULTAR
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                COMBO PARA EMPRENDEDORES<br>
+                DE ALARGUES
+            </div>
+
+            <span class="promo">
+                EFECTIVO O TRANSFERENCIA
+            </span>
+
+            <h3>
+                Rollo 2x1,5 de 100 mts + 20 enchufes macho y hembra
+            </h3>
+
+            <div class="price">
+                $76.000
+            </div>
+
+            <a class="product-button"
+               href="https://wa.me/541169728956?text=Hola%20MARCAM%2C%20consulto%20por%20el%20Combo%20para%20Emprendedores"
+               target="_blank">
+                CONSULTAR
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                TIRA LED RGB<br>
+                5 MTS + CONTROL
+            </div>
+
+            <span class="promo">
+                PROMO EN EFECTIVO
+            </span>
+
+            <h3>
+                Tira LED RGB 5 mts c/control
+            </h3>
+
+            <div class="price">
+                $11.000
+            </div>
+
+            <a class="product-button"
+               href="https://wa.me/541169728956?text=Hola%20MARCAM%2C%20consulto%20por%20la%20Tira%20LED%20RGB"
+               target="_blank">
+                CONSULTAR
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                FICHAS MACHO Y HEMBRA<br>
+                KALOP HEAVY DUTY
+            </div>
+
+            <span class="promo">
+                PROMO EN EFECTIVO
+            </span>
+
+            <h3>
+                28 fichas macho + 28 fichas hembra
+            </h3>
+
+            <div class="price">
+                $70.000
+            </div>
+
+            <div class="list-price">
+                Pagás a razón de $1.250 c/u
+            </div>
+
+            <a class="product-button"
+               href="https://wa.me/541169728956?text=Hola%20MARCAM%2C%20consulto%20por%20las%20Fichas%20Kalop"
+               target="_blank">
+                CONSULTAR
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                CARTEL LED<br>
+                "BARBERIA"
+            </div>
+
+            <span class="promo">
+                PROMO EN EFECTIVO
+            </span>
+
+            <h3>
+                Cartel LED luminoso "BARBERIA"
+            </h3>
+
+            <div class="price">
+                $18.000
+            </div>
+
+            <a class="product-button"
+               href="https://wa.me/541169728956?text=Hola%20MARCAM%2C%20consulto%20por%20el%20Cartel%20LED%20Barberia"
+               target="_blank">
+                CONSULTAR
+            </a>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                LUZ DE EMERGENCIA<br>
+                60 LED LUXOM
+            </div>
+
+            <span class="promo">
+                PROMO EN EFECTIVO
+            </span>
+
+            <h3>
+                Luz de emergencia 60LED Luxom a 220V
+            </h3>
+
+            <div class="price">
+                $13.000
+            </div>
+
+            <a class="product-button"
+               href="https://wa.me/541169728956?text=Hola%20MARCAM%2C%20consulto%20por%20la%20Luz%20de%20Emergencia%20Luxom"
+               target="_blank">
+                CONSULTAR
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="productos">
+
+    <h2>🛒 Nuestros productos</h2>
+
+    <p class="section-subtitle">
+        Encontrá todo lo que necesitás.
+    </p>
+
+    <div class="categories">
+
+        <div class="category">
+            <span class="category-icon">⚡</span>
+            Materiales eléctricos
+        </div>
+
+        <div class="category">
+            <span class="category-icon">💡</span>
+            Iluminación
+        </div>
+
+        <div class="category">
+            <span class="category-icon">🔧</span>
+            Herramientas
+        </div>
+
+        <div class="category">
+            <span class="category-icon">🏠</span>
+            Hogar
+        </div>
+
+        <div class="category">
+            <span class="category-icon">🌱</span>
+            Jardín
+        </div>
+
+        <div class="category">
+            <span class="category-icon">🔌</span>
+            Alargues y fichas
+        </div>
+
+        <div class="category">
+            <span class="category-icon">🔥</span>
+            Calefacción
+        </div>
+
+        <div class="category">
+            <span class="category-icon">📦</span>
+            Otros productos
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="ubicacion">
+
+    <h2>📍 Visitá MARCAM</h2>
+
+    <p class="section-subtitle">
+        Estamos a 500 mts. de Tribunales de Lomas de Zamora.
+    </p>
+
+
+    <div class="info">
+
+        <h3>🕐 Horarios de atención</h3>
+
+        <p>
+            <strong>Lunes a viernes:</strong><br>
+            9:00 a 13:00 hs.<br>
+            17:00 a 19:30 hs.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Sábados:</strong><br>
+            9:30 a 13:00 hs.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h3>🚚 Envíos a domicilio</h3>
+
+        <p>
+            Consultanos por disponibilidad y costo de envío
+            según tu zona.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="contacto">
+
+    <div class="contact">
+
+        <h2>📲 ¿Tenés alguna consulta?</h2>
+
+        <p>
+            Escribinos por WhatsApp y te ayudamos.
+        </p>
+
+        <div class="buttons">
+
+            <a class="button whatsapp"
+               href="https://wa.me/541169728956"
+               target="_blank">
+                💬 ESCRIBIR POR WHATSAPP
+            </a>
+
+            <a class="button"
+               href="https://www.instagram.com/marcam_hogar/"
+               target="_blank">
+                📸 INSTAGRAM
+            </a>
+
+        </div>
+
+        <p style="margin-top:20px;">
+            WhatsApp: <strong>11 6972-8956</strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="logo">
+        MAR<span>CAM</span>
+    </div>
+
+    <p>
+        Materiales eléctricos, iluminación,
+        herramientas y productos para el hogar.
+    </p>
+
+    <p style="margin-top:10px;">
+        Lomas de Zamora, Buenos Aires
+    </p>
+
+    <p style="margin-top:15px;font-size:13px;">
+        © MARCAM - Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<a class="whatsapp-float"
+   href="https://wa.me/541169728956"
+   target="_blank">
+    ☎
+</a>
+
+</body>
+</html>
