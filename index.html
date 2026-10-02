@@ -7,6 +7,29 @@
 <title>MARCAM HOGAR | Materiales eléctricos y para el hogar</title>
 
 <style>
+    .search-box {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 5px 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+.search-box span {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    padding: 12px 5px;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -316,7 +339,26 @@ footer {
 }
 </style>
 </head>
+<script>
+function buscarProducto() {
 
+    let texto = document.getElementById("buscador").value.toLowerCase();
+
+    let productos = document.querySelectorAll(".product");
+
+    productos.forEach(function(producto) {
+
+        let contenido = producto.textContent.toLowerCase();
+
+        if (contenido.includes(texto)) {
+            producto.style.display = "";
+        } else {
+            producto.style.display = "none";
+        }
+
+    });
+}
+</script>
 <body>
 
 <header>
@@ -561,6 +603,16 @@ footer {
 
     <h2>🛒 Nuestros productos</h2>
 
+    <div class="search-box">
+    <span>🔎</span>
+    <input 
+        type="text" 
+        id="buscador" 
+        placeholder="Buscar un producto..."
+        onkeyup="buscarProducto()"
+    >
+</div>
+    
     <p class="section-subtitle">
         Encontrá todo lo que necesitás.
     </p>
